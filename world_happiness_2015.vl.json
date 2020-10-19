@@ -1,0 +1,36 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "World Happiness Scores",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/christopher-huynh/FIT3179/main/worldmap.geo.json",
+    "format": {"type": "topojson", "feature": "worldmap"}
+  },
+  "transform": [
+    {
+      "lookup": "properties.name",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/christopher-huynh/FIT3179/main/2015.csv"
+        },
+        "key": "Country",
+        "fields": ["Happiness Score"]
+      }
+    }
+  ],
+  "projection": {"type": "equirectangular"},
+  "mark": {"type": "geoshape"},
+  "encoding": {
+    "color": {
+      "field": "Happiness Score",
+      "type": "quantitative",
+      "scale": {"domain": [0, 8]}
+    },
+    "tooltip": [
+      {"field": "properties.name", "type": "nominal", "title": "Country"},
+      {"field": "Happiness Score", "type": "quantitative"}
+    ]
+  },
+  "config": {}
+}
