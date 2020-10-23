@@ -1,0 +1,166 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "data": {
+    "url": "https://raw.githubusercontent.com/christopher-huynh/FIT3179/main/2015.csv"
+  },
+  "width":"container",
+  "params": [
+    {
+      "name": "Population_Above",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 100000000,
+        "step": 1000000,
+        "name": "Minimum Population: "
+      }
+    },
+    {
+      "name": "region_selection",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "Western Europe",
+          "North America",
+          "Australia and New Zealand",
+          "Middle East and Northern Africa",
+          "Latin America and Caribbean",
+          "Central and Eastern Europe",
+          "Southeastern Asia",
+          "Sub-Saharan Africa"
+        ],
+        "labels": [
+          "Show All",
+          "Western Europe",
+          "North America",
+          "Australia and New Zealand",
+          "Middle East and Northern Africa",
+          "Latin America and Caribbean",
+          "Central and Eastern Europe",
+          "Southeastern Asia",
+          "Eastern Asia",
+          "Sub-Saharan Africa"
+        ],
+        "name": "Region Selection: "
+      }
+    }
+  ],
+  "transform": [
+    {"filter": "region_selection==null || datum.Region ==region_selection"},
+    {"filter": "datum.Population > Population_Above"}
+  ],
+  "encoding": {
+    "x": {
+      "field": "Economy (GDP per Capita)",
+      "type": "quantitative",
+      "title": "Economy (GDP per Capita)",
+      "axis": {"tickCount": 7}
+    },
+    "y": {
+      "field": "Happiness Score",
+      "type": "quantitative",
+      "title": "Happiness Score",
+      "axis": {"tickCount": 7}
+    }
+  },
+  "layer": [
+    {
+      "selection": {
+        "region_highlight": {
+          "type": "multi",
+          "fields": ["Region"],
+          "bind": "legend"
+        }
+      },
+      "mark": "circle",
+      "encoding": {
+        "size": {
+          "field": "Population",
+          "type": "quantitative",
+          "scale": {
+            "type": "threshold",
+            "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
+            "range": [10, 50, 150, 200, 300, 400]
+          },
+          "legend": {"format": ".1s"}
+        },
+        "color": {
+          "field": "Region",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Western Europe",
+              "North America",
+              "Australia and New Zealand",
+              "Middle East and Northern Africa",
+              "Latin America and Caribbean",
+              "Central and Eastern Europe",
+              "Southeastern Asia",
+              "Eastern Asia",
+              "Sub-Saharan Africa"
+            ],
+            "range": [
+              "#8dd3c7",
+              "#ffffb3",
+              "#bebada",
+              "#fb8072",
+              "#80b1d3",
+              "#fdb462",
+              "#b3de69",
+              "#fccde5",
+              "#d9d9d9"
+            ]
+          }
+        },
+        "opacity": {
+          "condition": {"selection": "region_highlight", "value": 0.6},
+          "value": 0.2
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Population", "type": "quantitative", "format": ","},
+          {"field": "Happiness Score", "type": "quantitative", "format": ","},
+          {
+            "field": "Economy (GDP per Capita)",
+            "type": "quantitative",
+            "format": ","
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "baseline": "middle",
+        "dx": -12,
+        "fontSize": 11.5,
+        "fontStyle": "italic"
+      },
+      "encoding": {
+        "text": {"field": "Country", "type": "nominal"},
+        "color": {"value": "black"},
+        "opacity": {
+          "condition": {
+            "test": "datum['Country']=='Norway'||datum['Country']=='Australia'||datum['Country']=='Vietnam'||datum['Country']=='Colombia'||datum['Country']=='Egypt'||datum['Country']=='Syria'||datum['Country']=='Qatar'||datum['Country']=='Hong Kong'||datum['Country']=='China'||datum['Country']=='Afghanistan'",
+            "value": 1
+          },
+          "value": 0
+        },
+        "tooltip": [
+          {"field": "Country", "type": "nominal"},
+          {"field": "Population", "type": "quantitative", "format": ","},
+          {"field": "Happiness Score", "type": "quantitative", "format": ","},
+          {
+            "field": "Economy (GDP per Capita)",
+            "type": "quantitative",
+            "format": ","
+          }
+        ]
+      }
+    }
+  ],
+  "config": {}
+}
