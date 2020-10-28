@@ -25,7 +25,10 @@
     "color": {
       "field": "Happiness Score",
       "type": "quantitative",
-      "scale": {"domain": [0, 8]}
+      "scale": {
+        "type": "threshold",
+        "domain": [2,4,6,8],
+        "range":["#edf8e9","#bae4b3","#74c476","#238b45","#006d2c"]}
     },
     "tooltip": [
       {"field": "properties.name", "type": "nominal", "title": "Country"},
