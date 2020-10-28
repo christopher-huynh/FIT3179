@@ -58,13 +58,15 @@
       "field": "Economy (GDP per Capita)",
       "type": "quantitative",
       "title": "Economy (GDP per Capita)",
-      "axis": {"tickCount": 7}
+      "axis": {"tickCount": 7},
+      "scale":{"domain":[0,1.8]}
     },
     "y": {
       "field": "Happiness Score",
       "type": "quantitative",
       "title": "Happiness Score",
-      "axis": {"tickCount": 7}
+      "axis": {"tickCount": 7},
+      "scale":{"domain":[2,8]}
     }
   },
   "layer": [
