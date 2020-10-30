@@ -44,6 +44,7 @@
       }
     }
   ],
+  
   "transform": [
     {"filter": "region_selection==null || datum.Region ==region_selection"},
     {"filter": "datum.Population > Population_Above"}
@@ -64,7 +65,31 @@
       "scale":{"domain":[2,8]}
     }
   },
+  
+
   "layer": [
+    {
+      "mark":{
+        "type":"line",
+        "color":"firebrick"
+      },
+      "transform": [
+        {
+          "regression":"Happiness Score",
+          "on":"Economy (GDP per Capita)"
+        }
+
+      ],
+      "encoding":{
+        "x":{
+          "field":"Economy (GDP per Capita)",
+          "type":"quantitative"
+        }
+      }
+    },
+
+
+
     {
       "selection": {
         "region_highlight": {
@@ -73,6 +98,7 @@
           "bind": "legend"
         }
       },
+      
       "mark": "circle",
       "encoding": {
         "size": {
@@ -151,7 +177,9 @@
             "type": "quantitative",
             "format": ","
           }
+          
         ]
+
       }
     }
   ],
