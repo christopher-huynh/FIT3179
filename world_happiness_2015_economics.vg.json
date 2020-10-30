@@ -24,26 +24,21 @@
         "input": "select",
         "options": [
           null,
-          "Western Europe",
+          "Africa",
+          "Asia",
+          "Europe",
+          "Ocenia",
           "North America",
-          "Australia and New Zealand",
-          "Middle East and Northern Africa",
-          "Latin America and Caribbean",
-          "Central and Eastern Europe",
-          "Southeastern Asia",
-          "Sub-Saharan Africa"
+          "South America"
         ],
         "labels": [
           "Show All",
-          "Western Europe",
+          "Africa",
+          "Asia",
+          "Europe",
+          "Ocenia",
           "North America",
-          "Australia and New Zealand",
-          "Middle East and Northern Africa",
-          "Latin America and Caribbean",
-          "Central and Eastern Europe",
-          "Southeastern Asia",
-          "Eastern Asia",
-          "Sub-Saharan Africa"
+          "South America"
         ],
         "name": "Region Selection: "
       }
@@ -85,8 +80,8 @@
           "type": "quantitative",
           "scale": {
             "type": "threshold",
-            "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
-            "range": [10, 50, 150, 200, 300, 400]
+            "domain": [1000000, 10000000, 50000000, 100000000, 500000000,5000000000],
+            "range": [10, 50, 150, 200, 300, 400,500]
           },
           "legend": {"format": ".1s"}
         },
@@ -95,15 +90,12 @@
           "type": "nominal",
           "scale": {
             "domain": [
-              "Western Europe",
+              "Africa",
+              "Asia",
+              "Europe",
+              "Ocenia",
               "North America",
-              "Australia and New Zealand",
-              "Middle East and Northern Africa",
-              "Latin America and Caribbean",
-              "Central and Eastern Europe",
-              "Southeastern Asia",
-              "Eastern Asia",
-              "Sub-Saharan Africa"
+              "South America"
             ],
             "range": [
               "#a6cee3",
@@ -111,10 +103,7 @@
               "#b2df8a",
               "#33a02c",
               "#fb9a99",
-              "#e31a1c",
-              "#fdbf6f",
-              "#ff7f00",
-              "#cab2d6"
+              "#e31a1c"
             ]
           }
         },
