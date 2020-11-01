@@ -1,0 +1,17 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Happiness Factors",
+  "width": 800,
+  "height": 600,
+  "data": {
+    "url": "https://raw.githubusercontent.com/christopher-huynh/FIT3179/main/aggregate%20happiness.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "y": {"aggregate": "sum", "field": "Value", "title": "Happiness Score"},
+    "x": {"field": "Country"},
+    "color": {"field": "Happiness Index Factor"},
+    "tooltip": [{"field": "Happiness Index Factor"}, {"field": "Value"}]
+  },
+  "config": {}
+}
