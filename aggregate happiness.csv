@@ -1,0 +1,64 @@
+﻿Country,Happiness Index Factor,Value
+Switzerland,Economy (GDP per Capita),1.39651
+Switzerland,Family,1.34951
+Switzerland,Health (Life Expectancy),0.94143
+Switzerland,Freedom,0.66557
+Switzerland,Trust (Government Corruption),0.41978
+Switzerland,Generosity,0.29678
+Switzerland,Dystopia Residual,2.51738
+Australia,Economy (GDP per Capita),1.33358
+Australia,Family,1.30923
+Australia,Health (Life Expectancy),0.93156
+Australia,Freedom,0.65124
+Australia,Trust (Government Corruption),0.35637
+Australia,Generosity,0.43562
+Australia,Dystopia Residual,2.26646
+United Kingdom,Economy (GDP per Capita),1.26637
+United Kingdom,Family,1.28548
+United Kingdom,Health (Life Expectancy),0.90943
+United Kingdom,Freedom,0.59625
+United Kingdom,Trust (Government Corruption),0.32067
+United Kingdom,Generosity,0.51912
+United Kingdom,Dystopia Residual,1.96994
+Vietnam,Economy (GDP per Capita),1.06098
+Vietnam,Family,0.94632
+Vietnam,Health (Life Expectancy),0.73172
+Vietnam,Freedom,0.22815
+Vietnam,Trust (Government Corruption),0.15746
+Vietnam,Generosity,0.12253
+Vietnam,Dystopia Residual,2.08528
+Japan,Economy (GDP per Capita),1.27074
+Japan,Family,1.25712
+Japan,Health (Life Expectancy),0.99111
+Japan,Freedom,0.49615
+Japan,Trust (Government Corruption),0.1806
+Japan,Generosity,0.10705
+Japan,Dystopia Residual,1.68435
+Syria,Economy (GDP per Capita),0.31982
+Syria,Family,0.30285
+Syria,Health (Life Expectancy),0.30335
+Syria,Freedom,0.23414
+Syria,Trust (Government Corruption),0.09719
+Syria,Generosity,0.3651
+Syria,Dystopia Residual,1.9521
+Sri Lanka,Economy (GDP per Capita),0.83524
+Sri Lanka,Family,1.01905
+Sri Lanka,Health (Life Expectancy),0.70806
+Sri Lanka,Freedom,0.53726
+Sri Lanka,Trust (Government Corruption),0.09179
+Sri Lanka,Generosity,0.40828
+Sri Lanka,Dystopia Residual,0.67108
+India,Economy (GDP per Capita),0.64499
+India,Family,0.38174
+India,Health (Life Expectancy),0.51529
+India,Freedom,0.39786
+India,Trust (Government Corruption),0.08492
+India,Generosity,0.26475
+India,Dystopia Residual,2.27513
+Russia,Economy (GDP per Capita),1.13764
+Russia,Family,1.23617
+Russia,Health (Life Expectancy),0.66926
+Russia,Freedom,0.36679
+Russia,Trust (Government Corruption),0.03005
+Russia,Generosity,0.00199
+Russia,Dystopia Residual,2.27394
