@@ -24,6 +24,12 @@
 <h2>This is the third visualisation</h2>
 <div id="stacked_bar_chart"></div>
   
+<h2>This is the fourth visualisation</h2>
+<div id="line_chart"></div>
+  
+<h2>This is the fifth visualisation</h2>
+<div id="line_chart2"></div>
+  
  
 
 <script type="text/javascript">
@@ -45,6 +51,23 @@
   vegaEmbed('#stacked_bar_chart', vis3).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
   }).catch(console.error);
+  
+  var vis4 = "line_chart.vg.json";
+  
+  vegaEmbed('#line_chart', vis4.then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  var vis5 = "line_chart2.vg.json";
+  
+  vegaEmbed('#line_chart2', vis5.then(function(result) {
+    // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
+  }).catch(console.error);
+  
+  
+  
+  
+  
 </script>
 
 </body>
