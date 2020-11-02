@@ -1,10 +1,11 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "width": 400,
+  "height": 300,
+  "title": "Happiness Vs Economy 2015",
   "data": {
     "url": "https://raw.githubusercontent.com/christopher-huynh/FIT3179/main/2015.csv"
   },
-  "width":"400",
-  "height:"300",
   "params": [
     {
       "name": "Population_Above",
@@ -12,7 +13,7 @@
       "bind": {
         "input": "range",
         "min": 0,
-        "max": 100000000,
+        "max": 150000000,
         "step": 1000000,
         "name": "Minimum Population: "
       }
@@ -23,26 +24,21 @@
         "input": "select",
         "options": [
           null,
-          "Western Europe",
+          "Africa",
+          "Asia",
+          "Europe",
+          "Oceania",
           "North America",
-          "Australia and New Zealand",
-          "Middle East and Northern Africa",
-          "Latin America and Caribbean",
-          "Central and Eastern Europe",
-          "Southeastern Asia",
-          "Sub-Saharan Africa"
+          "South America"
         ],
         "labels": [
           "Show All",
-          "Western Europe",
+          "Africa",
+          "Asia",
+          "Europe",
+          "Oceania",
           "North America",
-          "Australia and New Zealand",
-          "Middle East and Northern Africa",
-          "Latin America and Caribbean",
-          "Central and Eastern Europe",
-          "Southeastern Asia",
-          "Eastern Asia",
-          "Sub-Saharan Africa"
+          "South America"
         ],
         "name": "Region Selection: "
       }
@@ -57,16 +53,27 @@
       "field": "Economy (GDP per Capita)",
       "type": "quantitative",
       "title": "Economy (GDP per Capita)",
-      "axis": {"tickCount": 7}
+      "axis": {"tickCount": 7},
+      "scale": {"domain": [0, 1.8]}
     },
     "y": {
       "field": "Happiness Score",
       "type": "quantitative",
       "title": "Happiness Score",
-      "axis": {"tickCount": 7}
+      "axis": {"tickCount": 7},
+      "scale": {"domain": [2, 8]}
     }
   },
   "layer": [
+    {
+      "mark": {"type": "line", "color": "firebrick"},
+      "transform": [
+        {"regression": "Happiness Score", "on": "Economy (GDP per Capita)"}
+      ],
+      "encoding": {
+        "x": {"field": "Economy (GDP per Capita)", "type": "quantitative"}
+      }
+    },
     {
       "selection": {
         "region_highlight": {
@@ -82,8 +89,15 @@
           "type": "quantitative",
           "scale": {
             "type": "threshold",
-            "domain": [1000000, 10000000, 50000000, 100000000, 500000000],
-            "range": [10, 50, 150, 200, 300, 400]
+            "domain": [
+              1000000,
+              10000000,
+              50000000,
+              100000000,
+              500000000,
+              1000000000
+            ],
+            "range": [10, 50, 150, 250, 380, 480, 800]
           },
           "legend": {"format": ".1s"}
         },
@@ -92,26 +106,20 @@
           "type": "nominal",
           "scale": {
             "domain": [
-              "Western Europe",
+              "Africa",
+              "Asia",
+              "Europe",
+              "Oceania",
               "North America",
-              "Australia and New Zealand",
-              "Middle East and Northern Africa",
-              "Latin America and Caribbean",
-              "Central and Eastern Europe",
-              "Southeastern Asia",
-              "Eastern Asia",
-              "Sub-Saharan Africa"
+              "South America"
             ],
             "range": [
-              "#8dd3c7",
-              "#ffffb3",
-              "#bebada",
-              "#fb8072",
-              "#80b1d3",
-              "#fdb462",
-              "#b3de69",
-              "#fccde5",
-              "#d9d9d9"
+              "#e41a1c",
+              "#1f78b4",
+              "#b2df8a",
+              "#984ea3",
+              "#ff7f00",
+              "#ffff33"
             ]
           }
         },
