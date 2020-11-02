@@ -1,0 +1,59 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v4.json",
+  "title": "Unemployment Rates 2015-2020",
+  "data": {
+    "url": "https://raw.githubusercontent.com/christopher-huynh/FIT3179/main/selected_unemployment.csv"
+  },
+  "encoding": {
+    "x": {"field": "Year", "type": "temporal", "title": "Year"},
+    "y": {
+      "field": "Unemployment",
+      "type": "quantitative",
+      "title": "Unemployment Rate %"
+    },
+    "color": {
+      "condition": {
+        "selection": "hover",
+        "field": "Country",
+        "type": "nominal",
+        "legend": null
+      },
+      "value": "grey"
+    },
+    "opacity": {"condition": {"selection": "hover", "value": 1}, "value": 0.2}
+  },
+  "layer": [
+    {
+      "description": "transparent layer to make it easier to trigger selection",
+      "selection": {
+        "hover": {
+          "type": "single",
+          "on": "mouseover",
+          "empty": "all",
+          "fields": ["Country"],
+          "init": {"Country": "Australia"}
+        }
+      },
+      "mark": {"type": "line", "strokeWidth": 8, "stroke": "transparent"}
+    },
+    {"mark": "line"},
+    {
+      "encoding": {
+        "x": {"aggregate": "max", "field": "Year"},
+        "y": {
+          "aggregate": {"argmax": "Year"},
+          "field": "Unemployment",
+          "scale": {"domainMin": 1.5}
+        }
+      },
+      "layer": [
+        {"mark": {"type": "circle"}},
+        {
+          "mark": {"type": "text", "align": "left", "dx": 4},
+          "encoding": {"text": {"field": "Country", "type": "nominal"}}
+        }
+      ]
+    }
+  ],
+  "config": {"view": {"stroke": null}}
+}
