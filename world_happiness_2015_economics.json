@@ -3,7 +3,8 @@
   "data": {
     "url": "https://raw.githubusercontent.com/christopher-huynh/FIT3179/main/2015.csv"
   },
-  "width":"container",
+  "width":"400",
+  "height:"300",
   "params": [
     {
       "name": "Population_Above",
